@@ -23,24 +23,17 @@ while (n < 99) {
 // a) Организовать такой массив для хранения товаров в корзине;
 // b) Организовать функцию countBasketPrice, которая будет считать стоимость корзины.
 
-let named = ['Radeon RX 580', 'GeForce 3080 GTX', 'GeForce 2080 GTX']
-let price = [13500, 100500, 30100]
-let count = [3, 2, 5]
-let card = [named, price, count]
-let BasketPrice = []
-let CommonBasketPrice = 0
+let card = [['Radeon RX 580', 'GeForce 3080 GTX', 'GeForce 2080 GTX'], [13500, 100500, 30100], [3, 2, 5]]
 
 function countBasketPrice(named, price, count) {
+    let CommonBasketPrice = 0
     for (i = 0; i < price.length; i++) {
-        BasketPrice.push(price[i] * count[i])
         CommonBasketPrice += price[i] * count[i];
-        console.log('Вы заказали ', count[i], 'шт.', named[i], 'На сумму', BasketPrice[i])
     }
+    return CommonBasketPrice
 }
 
 countBasketPrice(card[0], card[1], card[2])
-
-console.log('Общая стоимость корзины - ' + CommonBasketPrice)
 
 // 4.*Вывести с помощью цикла for числа от 0 до 9, не используя тело цикла. Выглядеть это должно так:
 
