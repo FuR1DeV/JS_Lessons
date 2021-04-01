@@ -88,17 +88,13 @@ function multiplication(a, b) {
 function mathOperation(arg1, arg2, operation) {
     switch (operation) {
         case '+':
-            console.log('Сумма чисел ' + sum(arg1, arg2))
-            break;
+            return sum(arg1, arg2)
         case '-':
-            console.log('Вычитание чисел ' + subtraction(arg1, arg2))
-            break;
+            return subtraction(arg1, arg2)
         case '/':
-            console.log('Деление чисел ' + division(arg1, arg2))
-            break;
+            return division(arg1, arg2)
         case '*':
-            console.log('Умножение чисел ' + multiplication(arg1, arg2))
-            break;
+            return multiplication(arg1, arg2)
     }
 }
 
