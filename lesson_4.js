@@ -42,22 +42,49 @@ obj(prompt('Введите число от 0 до 999'))
 // 2.3. Перенести функционал подсчета корзины на объектно-ориентированную базу.
 
 const basket = {
-    name: ['Nissan Tiida', 'Touta Prius', 'Honda Accord'],
-    year: [2020, 2021, 2004],
-    price: [1550000, 2550000, 450000],
-    count: [2, 1, 3],
+    cars: [
+        {
+            car_name: 'Nissan Tiida',
+            year: 2020,
+            price: 1550000,
+            count: 2,
+        },
+        {
+            car_name: 'Touta Prius',
+            year: 2021,
+            price: 2550000,
+            count: 1,
+        },
+        {
+            car_name: 'Honda Accord',
+            year: 2004,
+            price: 450000,
+            count: 3,
+        },
+    ],
 
     countBasketPrice() {
         let basketPrice = 0;
-        for (i = 0; i < basket.price.length; i++) {
-            basketPrice += basket.price[i] * basket.count[i];
+        for (i = 0; i < basket.cars.length; i++) {
+            basketPrice += basket.cars[i].price * basket.cars[i].count;
         }
         return `Общая сумма корзины ${basketPrice}`;
+    },
+
+    order() {
+        let price_for_1_position = 0
+        for (i = 0; i < basket.cars.length; i++) {
+            price_for_1_position += basket.cars[i].price * basket.cars[i].count
+            console.log("Вы заказали " + basket.cars[i].car_name + " " + basket.cars[i].year +
+                " года выпуска. По цене " + basket.cars[i].price + " рублей. В количестве " + basket.cars[i].count + " шт."
+                + "Общая сумма по 1 позиции " + price_for_1_position + " рубля."
+            );
+            price_for_1_position = 0
+        };
     }
 };
 
-console.log(basket.name);
-console.log(basket.year);
+console.log(basket.order());
 console.log(basket.countBasketPrice());
 
 // 3.* Подумать над глобальными сущностями. К примеру, сущность «Продукт» в интернет-магазине актуальна не только для корзины, 
