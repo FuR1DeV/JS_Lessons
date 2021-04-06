@@ -51,17 +51,50 @@ function getRandomInt(max) {
 var a = getRandomInt(15);
 console.log('Число у нас ' + a + ' выводим до 15')
 // Я решил сделать эту задачку с помощью рекурсии.
-function recurs() {
-    switch (a) {
-        case a:
-            console.log(a);
-            a++;
-            if (a > 15)
-                break;
-            recurs()
-    }
+// function recurs() {
+//    switch (a) {
+//        case a:
+//            console.log(a);
+//            a++;
+//            if (a > 15)
+//                break;
+//            recurs()
+//    }
+//}
+//recurs()
+// Мое решение с помощью рекурсии забраковали.
+switch (a) {
+    case 1:
+        console.log(a++);
+    case 2:
+        console.log(a++);
+    case 3:
+        console.log(a++);
+    case 4:
+        console.log(a++);
+    case 5:
+        console.log(a++);
+    case 6:
+        console.log(a++);
+    case 7:
+        console.log(a++);
+    case 8:
+        console.log(a++);
+    case 9:
+        console.log(a++);
+    case 10:
+        console.log(a++);
+    case 11:
+        console.log(a++);
+    case 12:
+        console.log(a++);
+    case 13:
+        console.log(a++);
+    case 14:
+        console.log(a++);
+    case 15:
+        console.log(a);
 }
-recurs()
 // 5. Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор return.
 
 function sum(a, b) {
