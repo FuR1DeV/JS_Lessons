@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chess board</title>
+</head>
+
+<body>
+    <canvas id="renderCanvas" width="250" height="250" style="border: solid grey 2px"></canvas>
+    <script>
+        var canvas = document.getElementById("renderCanvas");
+        var ctx = canvas.getContext("2d");
+        var offset = 25;
+
+        ctx.font = "20px Arial";
+        for (let i = 2; i < 10; i++) {
+            let v = i - 1;
+            ctx.fillText(v, offset / 2 - 5, offset * i - 5);
+        }
+        for (let i = 1; i < 9; i++) {
+            let v = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+            ctx.fillText(v[i - 1], offset * i + 5, offset / 2 + 5);
+        }
+        for (let i = 1, v = 2; i < 9;) {
+            drawCell(offset * i, offset, "black");
+            drawCell(offset * i, offset * 3, "black");
+            drawCell(offset * i, offset * 5, "black");
+            drawCell(offset * i, offset * 7, "black");
+            drawCell(offset * v, offset * 2, "black");
+            drawCell(offset * v, offset * 4, "black");
+            drawCell(offset * v, offset * 6, "black");
+            drawCell(offset * v, offset * 8, "black");
+            i += 2;
+            v += 2;
+        }
+        drawLine(offset * 9, offset, offset * 9, offset * 9);
+        drawLine(offset, offset, offset, offset * 9);
+        drawLine(offset, offset, offset * 9, offset);
+        drawLine(offset, offset * 9, offset * 9, offset * 9);
+
+        function drawCell(x, y, color) {
+            ctx.beginPath();
+            ctx.rect(x, y, 25, 25);
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+
+        function drawLine(x0, y0, x1, y1) {
+            ctx.beginPath();
+            ctx.strokeStyle = "green";
+            ctx.moveTo(x0, y0);
+            ctx.lineTo(x1, y1);
+            ctx.stroke();
+        }
+    </script>
+</body>
+
+</html>
